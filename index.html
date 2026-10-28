@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>জ - The Story of Handloom Jamdani | ঐতিহ্যবাহী ঢাকাই জামদানি শাড়ির বিশ্বস্ত ঠিকানা</title>
+  <meta name="description" content="মেশিনে বোনা নকল জামদানির দাপট থেকে ঢাকাই জামদানিকে বাঁচানোর এক সৎ প্রচেষ্টা। ১০০% খাঁটি হাতে বোনা ঐতিহ্যবাহী ঢাকাই জামদানি শাড়ির এক্সক্লুসিভ কালেকশন। বসুন্ধরা সিটি ও মিরপুর ডিওএইচএস শোরুম।">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧵</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            royal: {
+              950: '#140308',
+              900: '#22060f',
+              850: '#2f0815',
+              800: '#43091e',
+              700: '#701032',
+              600: '#9b1244',
+              500: '#be123c',
+              400: '#e11d48',
+              100: '#ffe4e6',
+              50: '#fff1f2'
+            },
+            gold: {
+              900: '#5c3905',
+              800: '#784a07',
+              700: '#a16207',
+              600: '#ca8a04',
+              500: '#eab308',
+              400: '#facc15',
+              300: '#fde047',
+              200: '#fef08a',
+              100: '#fef9c3',
+              50: '#fefce8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            bengali: ['"Hind Siliguri"', 'sans-serif'],
+            serif: ['"Cinzel"', 'serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- React 18 & Babel CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
+      background-color: #140308;
+      color: #fff1f2;
+    }
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #fef08a 0%, #facc15 50%, #ca8a04 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gold-border-glow {
+      box-shadow: 0 0 25px rgba(234, 179, 8, 0.2);
+    }
+    .pattern-jamdani {
+      background-color: #140308;
+      background-image: radial-gradient(rgba(234, 179, 8, 0.08) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    .shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .shimmer::after {
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      transform: translateX(-100%);
+      background-image: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(255, 255, 255, 0.2) 60%,
+        rgba(255, 255, 255, 0)
+      );
+      animation: shimmer 3s infinite;
+      content: '';
+    }
+    @keyframes shimmer {
+      100% {
+        transform: translateX(100%);
+      }
+    }
+  </style>
+</head>
+<body class="selection:bg-gold-500 selection:text-royal-950 pattern-jamdani">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useMemo } = React;
+
+    const BRAND_NAME = "জ - The Story of Handloom Jamdani";
+    const BRAND_PHONE = "01713-634246";
+    const HOTLINE_LANDLINE = "09639-154790";
+    const WHATSAPP_NUM = "8801713634246";
+    const FB_LINK = "https://www.facebook.com/exclusivejamdanisaree/";
+    const FB_FOLLOWERS = "২০২,০০০+ অনুসারী";
+
+    const SHOWROOMS = [
+      {
+        id: 'bashundhara',
+        title: 'বসুন্ধরা সিটি শোরুম',
+        address: 'শপ ৩১ ও ৩২, ব্লক সি, লেভেল ৫, বসুন্ধরা সিটি শপিং কমপ্লেক্স, পান্থপথ, ঢাকা',
+        phone: '09639154785',
+        phoneFormatted: '০৯৬৩৯১৫৪৭৮৫',
+        hours: 'প্রতিদিন সকাল ১০টা - রাত ৮টা (মঙ্গলবার সাপ্তাহিক বন্ধ)',
+        badge: 'ফ্ল্যাগশিপ শোরুম'
+      },
+      {
+        id: 'mirpur',
+        title: 'মিরপুর ডিওএইচএস শোরুম',
+        address: 'বাড়ি ১২৪৩ (লিফট ২), রোড ১০, এভিনিউ ২, মিরপুর ডিওএইচএস, ঢাকা',
+        phone: '09639154786',
+        phoneFormatted: '০৯৬৩৯১৫৪৭৮৬',
+        hours: 'প্রতিদিন সকাল ১১টা - রাত ৯টা (সপ্তাহে ৭ দিন খোলা)',
+        badge: 'এক্সক্লুসিভ ডিসপ্লে'
+      }
+    ];
+
+    const PRODUCTS = [
+      {
+        id: 'jmd-101',
+        title: 'রাজকীয় বিয়ে স্পেশাল ঢাকাই বেনারসি জামদানি',
+        category: 'bridal',
+        code: 'JMD-ROYAL-RED',
+        count: '৮৪ কাউন্ট পিওর কটন ও হাই-গ্রেড সুতো',
+        weaveTime: '২৫ দিন খাঁটি হস্তচালিত তাঁতের কাজ',
+        zari: 'খাঁটি লাল-স্বর্ণালী জারি ও ডবল আঁচল',
+        price: 18500,
+        originalPrice: 22000,
+        tag: 'ব্রাইডাল হট ফেভারিট',
+        image: 'images/jamdani_6.jpg',
+        description: 'ঐতিহ্যবাহী লাল রঙে গাঢ় সোনালী জরির নিখুঁত কাজের বিয়ের মাস্টারপিস। নিখুঁত তাঁতের বোনা বেনারসি জামদানি শাড়ি যা বিয়ের বরযাত্রী বা কনেকে এনে দেবে অনন্য রাজকীয় আভিজাত্য।'
+      },
+      {
+        id: 'jmd-102',
+        title: 'অভিজাত ময়ূরকণ্ঠী ঐতিহ্যবাহী তঞ্চই জামদানি',
+        category: 'tonchoi',
+        code: 'JMD-PEACOCK-TON',
+        count: '১০০ কাউন্ট প্রিমিয়াম সুতা ও তসর রেশম',
+        weaveTime: '২২ দিনের নিপুণ কারিগরি',
+        zari: 'ডুয়াল শেড ময়ূরপঙ্খী পার ও গোলাপ ফুল বুটি',
+        price: 16200,
+        originalPrice: 19500,
+        tag: 'ক্লাসিক হেরিটেজ',
+        image: 'images/jamdani_7.jpg',
+        description: 'আলো-ছায়ার দ্বৈত শেডে অপরূপ ময়ূরকণ্ঠী রঙের ঢাকাই জামদানি। সূক্ষ্ম তাঁতে বোনা সুতার জমিনে সূক্ষ্ম কাজ, যেকোনো সান্ধ্যকালীন উৎসব ও বিশেষ অনুষ্ঠানে নজর কাড়বেই।'
+      },
+      {
+        id: 'jmd-103',
+        title: 'স্বর্ণালী জরির আভিজাত্য নীলকমল রেশম জামদানি',
+        category: 'masterpiece',
+        code: 'JMD-NEEL-ZARI',
+        count: 'খাঁটি তসর সিল্ক ও রেশমি সুতো',
+        weaveTime: '৩২ দিন হাতের সূক্ষ্ম তাঁত',
+        zari: 'অলওভার ভারী জরি কাজ ও তঞ্চই বুটি',
+        price: 21500,
+        originalPrice: 25000,
+        tag: 'মাস্টারপিস কালেকশন',
+        image: 'images/jamdani_10.jpg',
+        description: 'ঢাকার অভিজ্ঞ প্রবীণ তাঁতিদের হাতে বোনা অসাধারণ এক সৃষ্টি। জমিন জুড়ে ঘন নীল ও সোনালী জরির মেলবন্ধন। এটি শুধু একটি শাড়ি নয়, আভিজাত্যের পারিবারিক ঐতিহ্য।'
+      },
+      {
+        id: 'jmd-104',
+        title: 'স্নিগ্ধ পদ্ম নকশা রেশমি ঢাকাই জামদানি',
+        category: 'tonchoi',
+        code: 'JMD-LOTUS-SILK',
+        count: '৮৪ কাউন্ট নরম রেশমি কটন',
+        weaveTime: '১৮ দিনের তাঁত বোনা',
+        zari: 'পদ্ম পাপড়ি পাড় ও কলকা মোটিফ',
+        price: 14800,
+        originalPrice: 17500,
+        tag: 'বেস্টসেলার',
+        image: 'images/jamdani_9.jpg',
+        description: 'স্নিগ্ধতা ও অহংকারের প্রতীক পদ্ম নকশার ঢাকাই জামদানি। অত্যন্ত আরামদায়ক ও ওজনে হালকা কিন্তু দেখতে অত্যন্ত গর্জিয়াস। যেকোনো ঘরোয়া অনুষ্ঠান বা দাওয়াতে সেরা পছন্দ।'
+      },
+      {
+        id: 'jmd-105',
+        title: 'ক্লাসিক ডবল সুতির ঢাকাই তাঁতের জামদানি',
+        category: 'cotton',
+        code: 'JMD-COTTON-PURE',
+        count: '১০০% খাঁটি দেশি সুতি (১০০ কাউন্ট)',
+        weaveTime: '১৪ দিন হস্তচালিত তাঁতের শ্রম',
+        zari: 'ম্যাট ফিনিশ সুতা ও সূক্ষ্ম বুটি',
+        price: 12500,
+        originalPrice: 15000,
+        tag: 'খাঁটি দেশি সুতি',
+        image: 'images/jamdani_11.jpg',
+        description: 'মেশিনের কৃত্রিম পলিয়েস্টার নয়, শতভাগ খাঁটি সুতোয় বোনা কোমল ঢাকাই জামদানি। সারাদিন পরে থাকলেও শরীর ঠাণ্ডা ও স্নিগ্ধ থাকে। সংবেদনশীল রুচিবানদের প্রথম পছন্দ।'
+      },
+      {
+        id: 'jmd-106',
+        title: 'উৎসব স্পেশাল এক্সক্লুসিভ প্রিমিয়াম জামদানি',
+        category: 'masterpiece',
+        code: 'JMD-FESTIVE-GOLD',
+        count: 'মাল্টি-কালার রেশম ও স্পেশাল সোনালী সুতো',
+        weaveTime: '২৮ দিনের বিশেষ বুনন',
+        zari: 'ঐতিহাসিক নবাবী বুটি ও ঝালর আঁচল',
+        price: 25000,
+        originalPrice: 29500,
+        tag: 'লিমিটেড এডিশন',
+        image: 'images/jamdani_12.jpg',
+        description: 'ঢাকার জামদানি ঐতিহ্যের চূড়ান্ত রূপ। প্রতিটি সুতা সাজানো হয়েছে পরম ভালোবাসায়। শাড়িটির বুননে কোনো কার্পণ্য করা হয়নি। জীবনভর আগলে রাখার মতো এক অনন্য শিল্পকর্ম।'
+      }
+    ];
+
+    function App() {
+      const [selectedCategory, setSelectedCategory] = useState('all');
+      const [orderModalProduct, setOrderModalProduct] = useState(null);
+      const [zoomImage, setZoomImage] = useState(null);
+
+      const [customerName, setCustomerName] = useState('');
+      const [customerPhone, setCustomerPhone] = useState('');
+      const [customerAddress, setCustomerAddress] = useState('');
+      const [deliveryOption, setDeliveryOption] = useState('dhaka'); // dhaka (70), outside (130), pickup (0)
+      const [quantity, setQuantity] = useState(1);
+
+      const filteredProducts = useMemo(() => {
+        if (selectedCategory === 'all') return PRODUCTS;
+        return PRODUCTS.filter(p => p.category === selectedCategory);
+      }, [selectedCategory]);
+
+      const deliveryCost = useMemo(() => {
+        if (deliveryOption === 'dhaka') return 70;
+        if (deliveryOption === 'outside') return 130;
+        return 0; // showroom pickup
+      }, [deliveryOption]);
+
+      const grandTotal = useMemo(() => {
+        if (!orderModalProduct) return 0;
+        return (orderModalProduct.price * quantity) + deliveryCost;
+      }, [orderModalProduct, quantity, deliveryCost]);
+
+      const handleWhatsAppSubmit = (e) => {
+        e.preventDefault();
+        if (!customerPhone.trim() || !customerName.trim()) {
+          alert('অনুগ্রহ করে আপনার নাম এবং মোবাইল নম্বর প্রদান করুন');
+          return;
+        }
+
+        const deliveryName = deliveryOption === 'dhaka' 
+          ? 'ঢাকা সিটির ভেতরে হোম ডেলিভারি (৳৭০)'
+          : deliveryOption === 'outside'
+            ? 'ঢাকা সিটির বাইরে কুরিয়ার ডেলিভারি (৳১৩০)'
+            : 'শোরুম পিকআপ (বসুন্ধরা সিটি / মিরপুর ডিওএইচএস - ফ্রি)';
+
+        const message = 
+`*জ - The Story of Handloom Jamdani* 
+*নতুন অনলাইন অর্ডার রিকোয়েস্ট* 🧵
+
+*শাড়ির বিবরণ:*
+• নাম: ${orderModalProduct.title}
+• কোড: ${orderModalProduct.code}
+• মূল্য: ৳${orderModalProduct.price.toLocaleString('en-IN')} x ${quantity} টি = ৳${(orderModalProduct.price * quantity).toLocaleString('en-IN')}
+• ডেলিভারি ধরন: ${deliveryName}
+• *সর্বমোট প্রদেয় বিল:* ৳${grandTotal.toLocaleString('en-IN')}
+
+*গ্রাহকের তথ্য:*
+• নাম: ${customerName.trim()}
+• মোবাইল: ${customerPhone.trim()}
+• ঠিকানা: ${customerAddress.trim() || 'শোরুম থেকে সরাসরি রিসিভ করবেন'}
+
+_আমি "জ"-এর খাঁটি হাতে বোনা এই জামদানি শাড়িটি বুকিং কনফার্ম করতে আগ্রহী। দয়া করে বিস্তারিত জানাবেন।_`;
+
+        const waUrl = `https://wa.me/${WHATSAPP_NUM}?text=${encodeURIComponent(message)}`;
+        window.open(waUrl, '_blank');
+      };
+
+      return (
+        <div className="min-h-screen flex flex-col bg-[#140308] text-rose-50 antialiased selection:bg-gold-500 selection:text-royal-950">
+          
+          {/* 1. TOP NOTICE / CONCEPT DEMO BADGE */}
+          <div className="bg-gradient-to-r from-royal-950 via-royal-900 to-royal-950 border-b border-gold-500/30 px-3 py-2 text-xs md:text-sm text-center text-gold-300 flex flex-wrap items-center justify-center gap-2 shadow-inner">
+            <span className="inline-flex items-center gap-1.5 font-semibold bg-gold-500/20 text-gold-300 px-2 py-0.5 rounded border border-gold-500/40">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              অফিসিয়াল কনসেপ্ট ডেমো
+            </span>
+            <span>জ- The Story of Handloom Jamdani | ২০২কে ফেসবুক ফলোয়ার্স ও ২টি শোরুম</span>
+            <span className="text-rose-400">|</span>
+            <a 
+              href="https://cryptowebbuild.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-white hover:text-gold-300 font-bold underline transition-colors"
+            >
+              Designed by CryptoWebBuild ⚡
+            </a>
+          </div>
+
+          {/* 2. MAIN NAVIGATION */}
+          <header className="sticky top-0 z-40 bg-royal-950/95 backdrop-blur-md border-b border-gold-500/20 transition-all">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+              
+              {/* Brand Logo & Tag */}
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-royal-700 via-royal-800 to-royal-950 border-2 border-gold-400/80 flex items-center justify-center shadow-lg shadow-gold-500/10">
+                  <span className="text-3xl font-serif font-black gold-gradient-text">জ</span>
+                </div>
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-serif font-black text-xl sm:text-2xl text-white tracking-wide">
+                      জ
+                    </span>
+                    <span className="hidden sm:inline-block text-xs uppercase tracking-widest text-gold-400 font-semibold border-l border-gold-500/40 pl-2">
+                      Handloom Jamdani
+                    </span>
+                  </div>
+                  <p className="text-[11px] sm:text-xs text-rose-300/80 font-bengali">
+                    হাতে বোনা আসল ঢাকাই জামদানি
+                  </p>
+                </div>
+              </div>
+
+              {/* Center Menu Links (Desktop) */}
+              <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
+                <a href="#collection" className="text-rose-100 hover:text-gold-300 transition-colors">শাড়ির কালেকশন</a>
+                <a href="#heritage" className="text-rose-100 hover:text-gold-300 transition-colors">তাঁতের গল্প ও খাঁটি মান</a>
+                <a href="#showrooms" className="text-rose-100 hover:text-gold-300 transition-colors">শোরুমের ঠিকানা</a>
+                <a href="#reviews" className="text-rose-100 hover:text-gold-300 transition-colors">গ্রাহক মন্তব্য</a>
+              </nav>
+
+              {/* Action Buttons */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                <a 
+                  href={`tel:${BRAND_PHONE}`}
+                  className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-royal-900 border border-gold-500/40 hover:border-gold-400 text-gold-300 text-xs sm:text-sm font-semibold transition shadow-sm"
+                  title="সরাসরি কল করুন"
+                >
+                  <svg className="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                  <span>{BRAND_PHONE}</span>
+                </a>
+
+                <a 
+                  href={`https://wa.me/${WHATSAPP_NUM}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-emerald-900/30 transition hover:scale-105 active:scale-95"
+                >
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                  </svg>
+                  <span>হোয়াটসঅ্যাপে বুকিং</span>
+                </a>
+              </div>
+
+            </div>
+          </header>
+
+          {/* 3. HERO SECTION */}
+          <section className="relative overflow-hidden pt-8 pb-16 lg:py-20 border-b border-gold-500/20 bg-gradient-to-b from-royal-950 via-royal-900 to-[#140308]">
+            <div className="absolute inset-0 pointer-events-none opacity-20">
+              <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-10 right-10 w-96 h-96 bg-royal-600/20 rounded-full blur-3xl"></div>
+            </div>
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                {/* Left Column: Mission & Hero Text */}
+                <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+                  
+                  {/* Verified & Trust Pill */}
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-royal-800/80 border border-gold-500/40 text-gold-300 text-xs sm:text-sm font-medium shadow-sm">
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-400"></span>
+                    </span>
+                    <span>{FB_FOLLOWERS} | ২টি ফ্ল্যাগশিপ শোরুম (বসুন্ধরা ও মিরপুর)</span>
+                  </div>
+
+                  {/* Main Headline */}
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] leading-tight font-extrabold text-white">
+                    মেশিনে বোনা নকল জামদানির দাপটে হারিয়ে যেতে দেব না <span className="gold-gradient-text">ঢাকাই ঐতিহ্য</span>
+                  </h1>
+
+                  {/* Brand Mission Quote */}
+                  <p className="text-base sm:text-lg text-rose-200/90 leading-relaxed font-normal border-l-2 border-gold-500/60 pl-4 lg:pl-5 text-left bg-royal-900/40 py-2.5 rounded-r-lg">
+                    "মেশিনে বোনা সিন্থেটিক নকল জামদানির দাপট থেকে ঢাকার শতবর্ষী খাঁটি তাঁতকে বাঁচানোর এক সৎ প্রচেষ্টার নাম <strong className="text-gold-300">‘জ’</strong>। রূপসী বাংলার দক্ষ কারিগরের পরম যত্নে বোনা একেকটি শাড়ি আমাদের অহংকার।"
+                  </p>
+
+                  {/* Feature Checklist */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs sm:text-sm text-left">
+                    <div className="flex items-center gap-2 text-rose-100">
+                      <svg className="w-4 h-4 text-gold-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span>১০০% খাঁটি হস্তচালিত তাঁত</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-rose-100">
+                      <svg className="w-4 h-4 text-gold-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span>খাঁটি সুতি ও তসর রেশম</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-rose-100">
+                      <svg className="w-4 h-4 text-gold-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span>ক্যাশ অন হোম ডেলিভারি</span>
+                    </div>
+                  </div>
+
+                  {/* CTA Buttons */}
+                  <div className="flex flex-col sm:flex-row items-center gap-3.5 pt-2 justify-center lg:justify-start">
+                    <a 
+                      href="#collection" 
+                      className="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-gold-500 via-gold-400 to-gold-500 text-royal-950 font-bold text-sm sm:text-base shadow-lg shadow-gold-500/20 hover:brightness-110 transition flex items-center justify-center gap-2"
+                    >
+                      <span>এক্সক্লুসিভ কালেকশন দেখুন</span>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </a>
+                    
+                    <a 
+                      href="#showrooms" 
+                      className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-royal-800/80 hover:bg-royal-800 border border-gold-500/40 text-gold-200 font-semibold text-sm sm:text-base transition flex items-center justify-center gap-2"
+                    >
+                      <svg className="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                      </svg>
+                      <span>শোরুম লোকেশন ও কল</span>
+                    </a>
+                  </div>
+
+                </div>
+
+                {/* Right Column: Hero Visual Card */}
+                <div className="lg:col-span-5 relative">
+                  <div className="relative rounded-2xl p-2 bg-gradient-to-b from-gold-400/30 via-royal-800/40 to-gold-500/20 border border-gold-500/30 shadow-2xl gold-border-glow">
+                    
+                    <div className="relative overflow-hidden rounded-xl aspect-[4/3] sm:aspect-[16/11] bg-royal-950 group">
+                      <img 
+                        src="images/jamdani_1.jpg" 
+                        alt="জ - The Story of Handloom Jamdani Official Photoshoot" 
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                        loading="eager"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-royal-950 via-transparent to-transparent opacity-80"></div>
+                      
+                      {/* Top Overlay Badge */}
+                      <div className="absolute top-3 left-3 bg-royal-950/90 border border-gold-400/50 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-gold-300 flex items-center gap-1.5 shadow-md">
+                        <span className="w-2 h-2 rounded-full bg-gold-400"></span>
+                        শীত ও উৎসব কালেকশন ২০২৬
+                      </div>
+
+                      {/* Bottom Banner on Image */}
+                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-royal-950/85 backdrop-blur-md border border-gold-500/30 flex items-center justify-between">
+                        <div>
+                          <p className="text-xs text-gold-400 font-semibold font-serif">জ - Handloom Heritage</p>
+                          <p className="text-xs sm:text-sm text-white font-bold">খাঁটি তাঁতের ঢাকাই জামদানি</p>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-[10px] text-rose-300 block">সরাসরি কারিগর থেকে</span>
+                          <span className="text-xs font-extrabold text-gold-300">১০০% গ্যারান্টি</span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          {/* 4. HERITAGE & CRAFTSMANSHIP PILLARS */}
+          <section id="heritage" className="py-14 bg-royal-900/40 border-b border-gold-500/20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
+                <span className="text-xs uppercase tracking-widest text-gold-400 font-bold">আমাদের প্রতিশ্রুতি</span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  কেন "জ"-এর ঢাকাই জামদানি সম্পূর্ণ আলাদা?
+                </h2>
+                <p className="text-sm text-rose-200/80">
+                  বাজারে মেশিনে তৈরি কৃত্রিম কাপড়কে যখন জামদানি বলে চালানো হয়, তখন ‘জ’ দাঁড়িয়েছে বাংলার তাঁতিদের পরম মমতায় বোনা আসল ঢাকাই জামদানি নিয়ে।
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                {/* Pillar 1 */}
+                <div className="p-6 rounded-2xl bg-royal-950/70 border border-gold-500/20 hover:border-gold-400/50 transition-all hover:-translate-y-1 shadow-lg space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-white">১০০% হস্তচালিত তাঁতের শ্রম</h3>
+                  <p className="text-xs sm:text-sm text-rose-200/70 leading-relaxed">
+                    একটি শাড়ি বুনতে দক্ষ তাঁতিদের ১৫ থেকে ৩৫ দিন সময় লাগে। কোনো স্বয়ংক্রিয় পাওয়ারলুম বা কৃত্রিম মেশিনের স্পর্শ নেই।
+                  </p>
+                </div>
+
+                {/* Pillar 2 */}
+                <div className="p-6 rounded-2xl bg-royal-950/70 border border-gold-500/20 hover:border-gold-400/50 transition-all hover:-translate-y-1 shadow-lg space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-white">খাঁটি সুতো ও লালনযোগ্য মান</h3>
+                  <p className="text-xs sm:text-sm text-rose-200/70 leading-relaxed">
+                    ৮৪ থেকে ১০০ কাউন্টের খাঁটি সুতি, তসর ও রেশমের ব্যবহার। বছরের পর বছর রঙ ও কোমলতা অক্ষুণ্ণ থাকে।
+                  </p>
+                </div>
+
+                {/* Pillar 3 */}
+                <div className="p-6 rounded-2xl bg-royal-950/70 border border-gold-500/20 hover:border-gold-400/50 transition-all hover:-translate-y-1 shadow-lg space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-bold text-white">২টি স্বনামধন্য শোরুম ও সরাসরি দেখে কেনার সুযোগ</h3>
+                  <p className="text-xs sm:text-sm text-rose-200/70 leading-relaxed">
+                    অনলাইনে অর্ডার করে সারা দেশে হোম ডেলিভারি নিতে পারেন, অথবা বসুন্ধরা সিটি ও মিরপুর ডিওএইচএস শোরুমে এসে হাত দিয়ে ছুঁয়ে দেখে নিতে পারেন।
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          {/* 5. PRODUCT CATALOG WITH FILTERS */}
+          <section id="collection" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            {/* Header & Filter Tabs */}
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-6 border-b border-gold-500/20">
+              <div className="space-y-1">
+                <span className="text-xs uppercase tracking-widest text-gold-400 font-bold">হাতে বোনা শাড়ি সম্ভার</span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  এক্সক্লুসিভ ঢাকাই জামদানি কালেকশন
+                </h2>
+                <p className="text-xs sm:text-sm text-rose-200/80">
+                  প্রতিটি শাড়িতে জড়িয়ে রয়েছে ঢাকার প্রাচীন কারিগরদের ভালোবাসা ও ঐতিহ্য।
+                </p>
+              </div>
+
+              {/* Filter Pills */}
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { key: 'all', label: 'সব কালেকশন' },
+                  { key: 'bridal', label: 'বিয়ে ও ব্রাইডাল' },
+                  { key: 'tonchoi', label: 'রেশম তঞ্চই' },
+                  { key: 'cotton', label: 'খাঁটি সুতি' },
+                  { key: 'masterpiece', label: 'মাস্টারপিস' }
+                ].map(tab => (
+                  <button
+                    key={tab.key}
+                    onClick={() => setSelectedCategory(tab.key)}
+                    className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                      selectedCategory === tab.key
+                        ? 'bg-gold-500 text-royal-950 shadow-md font-bold'
+                        : 'bg-royal-900/80 text-rose-200 hover:text-gold-300 border border-gold-500/20'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Products Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProducts.map(product => (
+                <div 
+                  key={product.id}
+                  className="rounded-2xl bg-royal-950/90 border border-gold-500/20 hover:border-gold-400/60 transition-all duration-300 hover:-translate-y-1.5 shadow-xl flex flex-col overflow-hidden group"
+                >
+                  
+                  {/* Image Container with Badges */}
+                  <div className="relative aspect-[4/3] overflow-hidden bg-royal-900 cursor-pointer" onClick={() => setZoomImage(product.image)}>
+                    <img 
+                      src={product.image} 
+                      alt={product.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="eager"
+                    />
+                    
+                    {/* Top Badges */}
+                    <div className="absolute top-3 left-3 flex flex-col gap-1.5 items-start">
+                      <span className="px-2.5 py-1 rounded bg-royal-950/90 border border-gold-400/60 text-gold-300 text-[11px] font-bold shadow-md backdrop-blur-sm">
+                        {product.tag}
+                      </span>
+                    </div>
+
+                    {/* Zoom Icon Button */}
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); setZoomImage(product.image); }}
+                      className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-royal-950/80 border border-gold-500/40 text-gold-300 flex items-center justify-center hover:scale-110 transition shadow-md"
+                      title="বড় করে দেখুন"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                      </svg>
+                    </button>
+                  </div>
+
+                  {/* Content Container */}
+                  <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
+                    
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between text-xs text-gold-400 font-mono">
+                        <span>{product.code}</span>
+                        <span className="text-emerald-400 flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                          ১০০% অরিজিনাল তাঁত
+                        </span>
+                      </div>
+
+                      <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-gold-200 transition-colors line-clamp-2">
+                        {product.title}
+                      </h3>
+
+                      <p className="text-xs text-rose-200/70 line-clamp-2 font-normal">
+                        {product.description}
+                      </p>
+
+                      {/* Technical Specs */}
+                      <div className="bg-royal-900/60 rounded-lg p-2.5 space-y-1 text-[11px] text-rose-200/90 border border-gold-500/10">
+                        <div className="flex justify-between">
+                          <span className="text-gold-400/80">সুতা ও মান:</span>
+                          <span className="font-semibold">{product.count}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-gold-400/80">বুননের সময়:</span>
+                          <span className="font-semibold">{product.weaveTime}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Price & Action Row */}
+                    <div className="pt-3 border-t border-gold-500/20 flex items-center justify-between gap-3">
+                      <div>
+                        <div className="text-[11px] text-rose-300/70 line-through">
+                          ৳{product.originalPrice.toLocaleString('en-IN')}
+                        </div>
+                        <div className="text-xl font-extrabold text-gold-300">
+                          ৳{product.price.toLocaleString('en-IN')}
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => {
+                          setOrderModalProduct(product);
+                          setQuantity(1);
+                        }}
+                        className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-royal-700 via-royal-600 to-royal-700 hover:from-gold-600 hover:to-gold-500 border border-gold-400/40 hover:border-gold-300 text-white hover:text-royal-950 font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 flex items-center gap-1.5"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                        </svg>
+                        <span>অর্ডার / বুকিং</span>
+                      </button>
+                    </div>
+
+                  </div>
+
+                </div>
+              ))}
+            </div>
+
+          </section>
+
+          {/* 6. PHYSICAL SHOWROOMS SECTION */}
+          <section id="showrooms" className="py-16 bg-gradient-to-b from-royal-900/40 via-royal-950 to-royal-950 border-y border-gold-500/20">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              
+              <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+                <span className="text-xs uppercase tracking-widest text-gold-400 font-bold">সরাসরি দেখে কেনার নিশ্চয়তা</span>
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  আমাদের ঢাকার ২টি প্রধান শোরুম
+                </h2>
+                <p className="text-xs sm:text-sm text-rose-200/80">
+                  সরাসরি শোরুমে এসে ১০০+ এক্সক্লুসিভ ঢাকাই জামদানি শাড়ির বুনন ও মান যাচাই করে নিন।
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {SHOWROOMS.map(room => (
+                  <div 
+                    key={room.id}
+                    className="rounded-2xl p-6 sm:p-8 bg-royal-950 border border-gold-500/30 hover:border-gold-400 shadow-xl space-y-5 relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-bl-full pointer-events-none"></div>
+
+                    <div className="flex items-center justify-between">
+                      <span className="px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-bold">
+                        {room.badge}
+                      </span>
+                      <span className="text-xs text-rose-300 font-medium">ঢাকা</span>
+                    </div>
+
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-2">{room.title}</h3>
+                      <p className="text-xs sm:text-sm text-rose-200/80 flex items-start gap-2">
+                        <svg className="w-5 h-5 text-gold-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <span>{room.address}</span>
+                      </p>
+                    </div>
+
+                    <div className="pt-2 text-xs text-rose-300/70 flex items-center gap-2">
+                      <svg className="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                      <span>{room.hours}</span>
+                    </div>
+
+                    <div className="pt-4 border-t border-gold-500/20 flex flex-wrap items-center justify-between gap-3">
+                      <div className="text-xs text-gold-300 font-semibold">
+                        ফোন: {room.phoneFormatted}
+                      </div>
+
+                      <a 
+                        href={`tel:${room.phone}`}
+                        className="px-4 py-2 rounded-lg bg-royal-800 hover:bg-gold-500 hover:text-royal-950 border border-gold-500/40 text-gold-200 text-xs font-bold transition flex items-center gap-1.5"
+                      >
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                        </svg>
+                        <span>শোরুমে কল করুন</span>
+                      </a>
+                    </div>
+
+                  </div>
+                ))}
+              </div>
+
+              {/* Central Hotline Bar */}
+              <div className="mt-8 rounded-xl p-5 bg-royal-950 border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <div>
+                  <p className="text-xs text-gold-400 font-bold uppercase">সেন্ট্রাল হটলাইন ও অনলাইন কাস্টমার কেয়ার</p>
+                  <p className="text-sm sm:text-base font-bold text-white">যে কোনো তথ্যে বা স্পেশাল কাস্টম অর্ডারে সরাসরি কথা বলুন</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <a 
+                    href={`tel:${BRAND_PHONE}`}
+                    className="px-4 py-2 rounded-lg bg-royal-800 border border-gold-500/40 text-gold-300 text-xs sm:text-sm font-bold hover:bg-royal-700 transition"
+                  >
+                    {BRAND_PHONE}
+                  </a>
+                  <a 
+                    href={`tel:${HOTLINE_LANDLINE}`}
+                    className="px-4 py-2 rounded-lg bg-royal-800 border border-gold-500/40 text-gold-300 text-xs sm:text-sm font-bold hover:bg-royal-700 transition"
+                  >
+                    {HOTLINE_LANDLINE}
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* 7. SOCIAL PROOF & REVIEWS */}
+          <section id="reviews" className="py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
+              <span className="text-xs uppercase tracking-widest text-gold-400 font-bold">আস্থার ২০২,০০০+ পরিবার</span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+                গ্রাহকদের ভালোবাসা ও মতামত
+              </h2>
+              <p className="text-xs sm:text-sm text-rose-200/80">
+                ফেসবুকে ১০০% রেকমেন্ডেড (২৬১+ ভেরিফায়েড রিভিউ)
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <div className="p-5 rounded-xl bg-royal-950/80 border border-gold-500/20 space-y-3 shadow-md">
+                <div className="flex text-gold-400 text-sm">★★★★★</div>
+                <p className="text-xs sm:text-sm text-rose-100/90 italic">
+                  "বসুন্ধরা সিটির শোরুম থেকে বিয়ের জন্য লাল ঢাকাই জামদানিটা নিয়েছিলাম। প্রতিটি সুতো আর আঁচলের কাজ এত নিখুঁত যে সবাই প্রশংসা করেছে। মেশিনের জামদানির সাথে এর কোনো তুলনাই হয় না।"
+                </p>
+                <div className="pt-2 border-t border-gold-500/10 flex items-center justify-between text-xs">
+                  <span className="font-bold text-white">নুসরাত জাহান</span>
+                  <span className="text-rose-400/70">ঢাকা</span>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-xl bg-royal-950/80 border border-gold-500/20 space-y-3 shadow-md">
+                <div className="flex text-gold-400 text-sm">★★★★★</div>
+                <p className="text-xs sm:text-sm text-rose-100/90 italic">
+                  "অনলাইনে অর্ডার করতে প্রথমে একটু ভয় লাগছিল। কিন্তু পার্সেল পেয়ে অবাক হয়েছি। একদম ছবির চেয়েও বাস্তবে বেশি সুন্দর আর খাঁটি সুতির স্পর্শটা অসাধারণ নরম।"
+                </p>
+                <div className="pt-2 border-t border-gold-500/10 flex items-center justify-between text-xs">
+                  <span className="font-bold text-white">তানজিলা আহমেদ</span>
+                  <span className="text-rose-400/70">চট্টগ্রাম</span>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-xl bg-royal-950/80 border border-gold-500/20 space-y-3 shadow-md">
+                <div className="flex text-gold-400 text-sm">★★★★★</div>
+                <p className="text-xs sm:text-sm text-rose-100/90 italic">
+                  "ঢাকায় আসল তাঁতের জামদানি খুঁজে পাওয়া সত্যিই কষ্টকর ছিল। 'জ'-এর উদ্যোগে আমি মুগ্ধ। ঐতিহ্যবাহী তাঁতিদের সম্মান জানিয়ে এমন কাজের সাথে সবাইকে থাকার অনুরোধ করব।"
+                </p>
+                <div className="pt-2 border-t border-gold-500/10 flex items-center justify-between text-xs">
+                  <span className="font-bold text-white">ফারহানা কবীর</span>
+                  <span className="text-rose-400/70">মিরপুর ডিওএইচএস</span>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          {/* 8. FOOTER */}
+          <footer className="mt-auto bg-royal-950 border-t border-gold-500/30 pt-12 pb-24 md:pb-12 text-xs sm:text-sm text-rose-300/80">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+              
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="space-y-3 md:col-span-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-8 h-8 rounded-full bg-royal-800 border border-gold-400 flex items-center justify-center font-serif font-black text-gold-300 text-lg">জ</span>
+                    <span className="font-serif font-bold text-lg text-white">জ - The Story of Handloom Jamdani</span>
+                  </div>
+                  <p className="text-xs text-rose-300/70 max-w-md">
+                    মেশিনে বোনা নকল জামদানির ভিড়ে আসল ঢাকাই জামদানি বাঁচিয়ে রাখার ঐতিহ্যবাহী মঞ্চ। বসুন্ধরা সিটি ও মিরপুর ডিওএইচএস শোরুম।
+                  </p>
+                  <div className="flex items-center gap-3 pt-2">
+                    <a href={FB_LINK} target="_blank" rel="noopener noreferrer" className="p-2 rounded bg-royal-900 border border-gold-500/30 hover:border-gold-400 text-gold-300">
+                      ফেসবুক পেজ (২০২কে+)
+                    </a>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <p className="font-bold text-white uppercase text-xs tracking-wider text-gold-400">দ্রুত লিংক</p>
+                  <ul className="space-y-1.5 text-xs">
+                    <li><a href="#collection" className="hover:text-gold-300">সকল শাড়ি কালেকশন</a></li>
+                    <li><a href="#heritage" className="hover:text-gold-300">খাঁটি তাঁতের বৈশিষ্ট্য</a></li>
+                    <li><a href="#showrooms" className="hover:text-gold-300">শোরুমের লোকেশন</a></li>
+                    <li><a href={`tel:${BRAND_PHONE}`} className="hover:text-gold-300">হটলাইনে কল করুন</a></li>
+                  </ul>
+                </div>
+
+                <div className="space-y-2">
+                  <p className="font-bold text-white uppercase text-xs tracking-wider text-gold-400">কনসেপ্ট ডেমো ক্রেডিট</p>
+                  <p className="text-xs leading-relaxed text-rose-300/70">
+                    এটি একটি আধুনিক ই-কমার্স ওয়েব কনসেপ্ট ডেমো। ডিজাইন ও ডেভেলপ করেছে <a href="https://cryptowebbuild.com" target="_blank" rel="noopener noreferrer" className="text-gold-300 font-bold underline">CryptoWebBuild</a>।
+                  </p>
+                </div>
+              </div>
+
+              <div className="pt-6 border-t border-gold-500/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left text-xs">
+                <p>© ২০২৬ জ - The Story of Handloom Jamdani. সর্বস্বত্ব সংরক্ষিত।</p>
+                <p className="text-gold-400 font-medium">
+                  Developed with ❤️ for Traditional Dhakai Jamdani Heritage
+                </p>
+              </div>
+
+            </div>
+          </footer>
+
+          {/* 9. ORDER / WHATSAPP DRAWER MODAL */}
+          {orderModalProduct && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+              <div 
+                className="bg-royal-950 border border-gold-400/60 rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl p-6 relative text-rose-50"
+                onClick={(e) => e.stopPropagation()}
+              >
+                
+                {/* Close Button */}
+                <button 
+                  onClick={() => setOrderModalProduct(null)}
+                  className="absolute top-4 right-4 text-rose-300 hover:text-white p-1 rounded-full bg-royal-900 border border-gold-500/20"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </button>
+
+                <div className="flex items-center gap-3 mb-4 pb-3 border-b border-gold-500/20">
+                  <img 
+                    src={orderModalProduct.image} 
+                    alt={orderModalProduct.title} 
+                    className="w-16 h-16 rounded-xl object-cover border border-gold-500/40"
+                  />
+                  <div>
+                    <span className="text-[10px] text-gold-400 font-mono font-bold uppercase">{orderModalProduct.code}</span>
+                    <h3 className="text-sm sm:text-base font-bold text-white line-clamp-1">{orderModalProduct.title}</h3>
+                    <p className="text-sm font-extrabold text-gold-300">
+                      ৳{orderModalProduct.price.toLocaleString('en-IN')}
+                    </p>
+                  </div>
+                </div>
+
+                <form onSubmit={handleWhatsAppSubmit} className="space-y-4 text-xs sm:text-sm">
+                  
+                  {/* Quantity selector */}
+                  <div className="flex items-center justify-between bg-royal-900/60 p-2.5 rounded-xl border border-gold-500/20">
+                    <span className="font-semibold text-rose-200">শাড়ির সংখ্যা (পিস):</span>
+                    <div className="flex items-center gap-3">
+                      <button 
+                        type="button"
+                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                        className="w-7 h-7 rounded bg-royal-800 text-gold-300 font-bold border border-gold-500/30 flex items-center justify-center hover:bg-royal-700"
+                      >-</button>
+                      <span className="font-bold text-base text-white">{quantity}</span>
+                      <button 
+                        type="button"
+                        onClick={() => setQuantity(quantity + 1)}
+                        className="w-7 h-7 rounded bg-royal-800 text-gold-300 font-bold border border-gold-500/30 flex items-center justify-center hover:bg-royal-700"
+                      >+</button>
+                    </div>
+                  </div>
+
+                  {/* Delivery Mode Choice */}
+                  <div className="space-y-1.5">
+                    <label className="block text-xs font-bold text-gold-300">ডেলিভারি / রিসিভ অপশন:</label>
+                    <div className="grid grid-cols-1 gap-2">
+                      <label className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer text-xs ${deliveryOption === 'dhaka' ? 'border-gold-400 bg-royal-900/80 text-white font-bold' : 'border-gold-500/20 bg-royal-950 text-rose-200'}`}>
+                        <div className="flex items-center gap-2">
+                          <input 
+                            type="radio" 
+                            name="delivery" 
+                            value="dhaka" 
+                            checked={deliveryOption === 'dhaka'} 
+                            onChange={(e) => setDeliveryOption(e.target.value)}
+                            className="accent-gold-500"
+                          />
+                          <span>ঢাকা সিটির ভেতরে হোম ডেলিভারি</span>
+                        </div>
+                        <span className="text-gold-300 font-mono">৳৭০</span>
+                      </label>
+
+                      <label className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer text-xs ${deliveryOption === 'outside' ? 'border-gold-400 bg-royal-900/80 text-white font-bold' : 'border-gold-500/20 bg-royal-950 text-rose-200'}`}>
+                        <div className="flex items-center gap-2">
+                          <input 
+                            type="radio" 
+                            name="delivery" 
+                            value="outside" 
+                            checked={deliveryOption === 'outside'} 
+                            onChange={(e) => setDeliveryOption(e.target.value)}
+                            className="accent-gold-500"
+                          />
+                          <span>ঢাকার বাইরে সুন্দরবন / এসএ পরিবহন</span>
+                        </div>
+                        <span className="text-gold-300 font-mono">৳১৩০</span>
+                      </label>
+
+                      <label className={`flex items-center justify-between p-2.5 rounded-xl border cursor-pointer text-xs ${deliveryOption === 'pickup' ? 'border-gold-400 bg-royal-900/80 text-white font-bold' : 'border-gold-500/20 bg-royal-950 text-rose-200'}`}>
+                        <div className="flex items-center gap-2">
+                          <input 
+                            type="radio" 
+                            name="delivery" 
+                            value="pickup" 
+                            checked={deliveryOption === 'pickup'} 
+                            onChange={(e) => setDeliveryOption(e.target.value)}
+                            className="accent-gold-500"
+                          />
+                          <span>শোরুম পিকআপ (বসুন্ধরা সিটি / মিরপুর ডিওএইচএস)</span>
+                        </div>
+                        <span className="text-emerald-400 font-bold">ফ্রি (৳০)</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  {/* Customer Inputs */}
+                  <div className="space-y-2">
+                    <div>
+                      <label className="block text-xs font-bold text-rose-200 mb-1">আপনার নাম *</label>
+                      <input 
+                        type="text" 
+                        required
+                        placeholder="আপনার সম্পূর্ণ নাম লিখুন"
+                        value={customerName}
+                        onChange={(e) => setCustomerName(e.target.value)}
+                        className="w-full bg-royal-900 border border-gold-500/30 rounded-lg px-3 py-2 text-white placeholder-rose-300/40 text-xs sm:text-sm focus:outline-none focus:border-gold-400"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-rose-200 mb-1">মোবাইল নম্বর *</label>
+                      <input 
+                        type="tel" 
+                        required
+                        placeholder="০১XXXXXXXXX"
+                        value={customerPhone}
+                        onChange={(e) => setCustomerPhone(e.target.value)}
+                        className="w-full bg-royal-900 border border-gold-500/30 rounded-lg px-3 py-2 text-white placeholder-rose-300/40 text-xs sm:text-sm focus:outline-none focus:border-gold-400"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-rose-200 mb-1">
+                        {deliveryOption === 'pickup' ? 'কাঙ্ক্ষিত শোরুমের নাম (বসুন্ধরা / মিরপুর)' : 'ডেলিভারি ঠিকানা *'}
+                      </label>
+                      <textarea 
+                        rows="2"
+                        placeholder={deliveryOption === 'pickup' ? 'কোন শোরুম থেকে নেবেন লিখুন' : 'বাসা নং, রোড, থানা, জেলা'}
+                        value={customerAddress}
+                        onChange={(e) => setCustomerAddress(e.target.value)}
+                        className="w-full bg-royal-900 border border-gold-500/30 rounded-lg px-3 py-2 text-white placeholder-rose-300/40 text-xs sm:text-sm focus:outline-none focus:border-gold-400"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  {/* Total Calculation */}
+                  <div className="bg-royal-900/80 rounded-xl p-3 border border-gold-400/40 space-y-1 text-xs">
+                    <div className="flex justify-between text-rose-300">
+                      <span>শাড়ির সাবটোটাল:</span>
+                      <span>৳{(orderModalProduct.price * quantity).toLocaleString('en-IN')}</span>
+                    </div>
+                    <div className="flex justify-between text-rose-300">
+                      <span>ডেলিভারি চার্জ:</span>
+                      <span>{deliveryCost === 0 ? 'ফ্রি' : `৳${deliveryCost}`}</span>
+                    </div>
+                    <div className="flex justify-between text-base font-extrabold text-gold-300 pt-1 border-t border-gold-500/20">
+                      <span>সর্বমোট প্রদেয়:</span>
+                      <span>৳{grandTotal.toLocaleString('en-IN')}</span>
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <button 
+                    type="submit"
+                    className="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition shadow-lg shadow-emerald-950 flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+                    </svg>
+                    <span>১-ক্লিকে হোয়াটসঅ্যাপে বুকিং সম্পন্ন করুন</span>
+                  </button>
+
+                  <p className="text-[10px] text-center text-rose-300/60">
+                    * আপনার দেওয়া তথ্য নিয়ে সরাসরি "জ"-এর অফিশিয়াল হোয়াটসঅ্যাপ ওপেন হবে।
+                  </p>
+
+                </form>
+
+              </div>
+            </div>
+          )}
+
+          {/* 10. HIGH RESOLUTION IMAGE ZOOM LIGHTBOX */}
+          {zoomImage && (
+            <div 
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md animate-fade-in"
+              onClick={() => setZoomImage(null)}
+            >
+              <div className="relative max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl border border-gold-500/40 bg-royal-950">
+                <button 
+                  onClick={() => setZoomImage(null)}
+                  className="absolute top-4 right-4 text-white p-2 rounded-full bg-royal-950/80 border border-gold-500/30 hover:bg-gold-500 hover:text-royal-950 transition z-10"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+                  </svg>
+                </button>
+                <img 
+                  src={zoomImage} 
+                  alt="জ - খাঁটি ঢাকাই জামদানি ক্লোজ-আপ ভিউ" 
+                  className="w-full h-auto max-h-[85vh] object-contain"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* 11. MOBILE BOTTOM FLOATING ACTION BAR */}
+          <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-royal-950/95 backdrop-blur-md border-t border-gold-500/30 p-2.5 flex items-center gap-2">
+            <a 
+              href={`tel:${BRAND_PHONE}`}
+              className="flex-1 py-2.5 rounded-xl bg-royal-900 border border-gold-500/40 text-gold-300 font-bold text-xs flex items-center justify-center gap-1.5"
+            >
+              <svg className="w-4 h-4 text-gold-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <span>হটলাইনে কল</span>
+            </a>
+
+            <a 
+              href={`https://wa.me/${WHATSAPP_NUM}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+              <span>হোয়াটসঅ্যাপ চ্যাট</span>
+            </a>
+          </div>
+
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
